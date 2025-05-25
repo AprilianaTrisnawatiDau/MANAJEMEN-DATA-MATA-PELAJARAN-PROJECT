@@ -336,7 +336,6 @@ private List<MataPelajaranBahasa> listData = new ArrayList<>();
     }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void btnbahasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbahasaActionPerformed
-
         new GUI_TabelMapelBahasa().setVisible(true);
         this.dispose(); 
     }//GEN-LAST:event_btnbahasaActionPerformed
@@ -382,9 +381,7 @@ private List<MataPelajaranBahasa> listData = new ArrayList<>();
     }//GEN-LAST:event_txtMateriActionPerformed
 
     private void tabel_dataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabel_dataMouseClicked
-  
-    
-        //masukkan source code onclick pada tabel
+    //masukkan source code onclick pada tabel
     }//GEN-LAST:event_tabel_dataMouseClicked
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
@@ -432,12 +429,11 @@ private List<MataPelajaranBahasa> listData = new ArrayList<>();
     }//GEN-LAST:event_InggrisActionPerformed
 
     private void cmb_tingkatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_tingkatActionPerformed
-
-// TODO add your handling code here:
+    // TODO add your handling code here:
     }//GEN-LAST:event_cmb_tingkatActionPerformed
 
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
-    // Ambil teks dari input pencarian (misalnya, txtCari) dan hapus spasi ekstra
+
     String kodeCari = txtCari.getText().trim();
     
     // Periksa apakah input pencarian kosong

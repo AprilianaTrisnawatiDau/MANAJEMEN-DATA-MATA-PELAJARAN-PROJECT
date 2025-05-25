@@ -328,37 +328,44 @@ ArrayList<MataPelajaranPraktikum> listData = new ArrayList<>();
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
-     String keyword = txtCari.getText().trim().toLowerCase();
-        DefaultTableModel model = (DefaultTableModel) tabel_data.getModel();
-        model.setRowCount(0);
-        boolean ditemukan = false;
+    String keyword = txtCari.getText().trim().toLowerCase();
 
-        for (MataPelajaranPraktikum mp : listData) {
-            if (mp.cetakKelas().toLowerCase().contains(keyword) ||
-                mp.cetakDurasi().toLowerCase().contains(keyword) ||
-                mp.cetakJumlahAslab().toLowerCase().contains(keyword) ||
-                mp.cetakKelas().toLowerCase().contains(keyword) ||
-                (mp.cetakLaporan() + " | " + mp.cetakAlat() + " | " + mp.cetakModul() + " | ").toLowerCase().contains(keyword) ||
-                mp.cetakStatus().toLowerCase().contains(keyword)) {
-                Object[] rowData = {
-                    mp.cetakKelasAsal(),
-                    mp.cetakDurasi(),
-                    mp.cetakJumlahAslab(),
-                    mp.cetakKelas(),
-                    mp.cetakLaporan() + " | " +
-                    mp.cetakAlat() + " | " +
-                    mp.cetakModul() + " | ",
-                    mp.cetakStatus()
-                };
-                model.addRow(rowData);
-                ditemukan = true;
-            }
-        }
+    // Periksa apakah input pencarian kosong
+    if (keyword.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Masukkan Kelas praktikum yang ingin dicari.", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        return; // Keluar dari method jika input kosong
+    }
 
-        if (!ditemukan) {
-            JOptionPane.showMessageDialog(this, "Data dengan kata kunci '" + keyword + "' tidak ditemukan.", "Pencarian", JOptionPane.INFORMATION_MESSAGE);
-            tampilkanData(); // Tampilkan kembali semua data jika tidak ada yang cocok
+    DefaultTableModel model = (DefaultTableModel) tabel_data.getModel();
+    model.setRowCount(0);
+    boolean ditemukan = false;
+
+    for (MataPelajaranPraktikum mp : listData) {
+        if (mp.cetakKelas().toLowerCase().contains(keyword) ||
+            mp.cetakDurasi().toLowerCase().contains(keyword) ||
+            String.valueOf(mp.cetakJumlahAslab()).toLowerCase().contains(keyword) ||
+            mp.cetakKelas().toLowerCase().contains(keyword) ||
+            (mp.cetakLaporan() + " | " + mp.cetakAlat() + " | " + mp.cetakModul()).toLowerCase().contains(keyword) ||
+            mp.cetakStatus().toLowerCase().contains(keyword)) {
+            Object[] rowData = {
+                mp.cetakKelasAsal(),
+                mp.cetakDurasi(),
+                mp.cetakJumlahAslab(),
+                mp.cetakKelas(),
+                mp.cetakLaporan() + " | " +
+                mp.cetakAlat() + " | " +
+                mp.cetakModul(),
+                mp.cetakStatus()
+            };
+            model.addRow(rowData);
+            ditemukan = true;
         }
+    }
+
+    if (!ditemukan) {
+        JOptionPane.showMessageDialog(this, "Data dengan kata kunci '" + keyword + "' tidak ditemukan.", "Pencarian", JOptionPane.INFORMATION_MESSAGE);
+        tampilkanData(); // Tampilkan kembali semua data jika tidak ada yang cocok
+    }
     }//GEN-LAST:event_btnCariActionPerformed
 
     private void txtCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariActionPerformed

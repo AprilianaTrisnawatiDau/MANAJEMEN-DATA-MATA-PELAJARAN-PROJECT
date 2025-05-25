@@ -408,7 +408,7 @@ public void batal() {
     }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void btnbahasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbahasaActionPerformed
-    new GUI_TabelMapelBahasa().setVisible(true);
+    new GUI_Mapel().setVisible(true);
     this.dispose(); // Menutup form saat ini
     }//GEN-LAST:event_btnbahasaActionPerformed
 
